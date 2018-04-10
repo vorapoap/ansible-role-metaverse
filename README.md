@@ -1,7 +1,11 @@
 Metaverse Public Blockchain
 =========
 
-Metaverse(MVS) is a decentralised system based on the blockchain technology, through which, a network of smart properties, digital identities and value intermediators are established.
+Metaverse(MVS) is a decentralised system based on the blockchain technology, through which, a network of smart properties, digital identities and value intermediators are established. 
+
+https://github.com/mvs-org/metaverse
+
+![Metaverse](https://github.com/mvs-org/metaverse/raw/master/doc/image/dev-path.jpg "Metaverse")
 
 Requirements
 ------------
@@ -47,5 +51,4 @@ MIT
 Author Information
 ------------------
 
-Vorapoap Lohwongwatana
-https://www.linkedin.com/in/vorapoap/
+[Vorapoap Lohwongwatana](https://www.linkedin.com/in/vorapoap/)
