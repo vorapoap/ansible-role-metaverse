@@ -1,0 +1,11 @@
+---
+# defaults file for ansible-role-metaverse
+boost_work_dir: '/tmp/boost'
+boost_version: '1.66.0'
+boost_build_dir: 'boost_{{ boost_version.replace(".", "_") }}'
+boost_tar_name: '{{ boost_build_dir }}.tar.bz2'
+libbitcoin_work_dir: '/tmp/libbitcoin'
+zeromq_work_dir: '/tmp/zeromq'
+secp256k1_work_dir: '/tmp/secp256k1'
+miniupnpc_work_dir: '/tmp/miniupnpc'
+metaverse_work_dir: '/tmp/metaverse'

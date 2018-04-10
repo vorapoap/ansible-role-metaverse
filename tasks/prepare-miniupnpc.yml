@@ -1,0 +1,19 @@
+---
+
+- name: Create miniupnpc work directory
+  file: path={{ miniupnpc_work_dir }} state=directory
+
+- name: Download and unpack miniupnpc
+  unarchive:
+    src: http://miniupnp.tuxfamily.org/files/miniupnpc-2.0.tar.gz
+    dest: '{{ miniupnpc_work_dir }}'
+    remote_src: yes
+
+- name: Build miniupnpc
+  shell: chdir={{ miniupnpc_work_dir }}/miniupnpc-2.0 make -j4
+
+- name: Install miniupnpc
+  shell: chdir={{ miniupnpc_work_dir }}/miniupnpc-2.0 make install
+
+- name: Run Ldconfig
+  shell: chdir={{ zeromq_work_dir }}/zeromq-4.2.1 ldconfig

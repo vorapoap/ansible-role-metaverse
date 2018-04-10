@@ -1,0 +1,11 @@
+---
+
+- name: Install yum package for miniupnpc
+  yum:
+    name: miniupnpc
+    state: latest
+
+- name: Install yum package for miniupnpc-devel
+  yum:
+    name: miniupnpc-devel
+    state: latest

@@ -1,0 +1,36 @@
+#sudo apt-get install build-essential autoconf automake libtool pkg-config git
+
+- name: Install apt package for build-essential
+  apt:
+    name: build-essential
+    state: latest
+
+- name: Install apt package for autoconf
+  apt:
+    name: autoconf
+    state: latest
+
+- name: Install apt package for automake
+  apt:
+    name: automake
+    state: latest
+
+- name: Install apt package for libtool
+  apt:
+    name: libtool
+    state: latest
+
+- name: Install apt package for pkgconfig
+  apt:
+    name: pkgconfig
+    state: latest
+
+- name: Install apt package for git
+  apt:
+    name: git
+    state: latest
+
+- name: Install apt package for cmake
+  apt:
+    name: cmake
+    state: latest

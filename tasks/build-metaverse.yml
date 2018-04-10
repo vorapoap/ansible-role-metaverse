@@ -1,0 +1,22 @@
+---
+
+- name: Create metaverse work directory
+  file: path={{ metaverse_work_dir }} state=directory
+
+- name: Git clone metaverse
+  git:
+    repo: 'https://github.com/mvs-org/metaverse.git'
+    dest: '{{ metaverse_work_dir }}'
+
+- name: Create metaverse build directory
+  file: path={{ metaverse_work_dir }}/build state=directory
+
+- name: Execute metaverse
+  shell: chdir={{ metaverse_work_dir }}/build cmake ..
+
+- name: Make metaverse
+  shell: chdir={{ metaverse_work_dir }} make -j4
+
+- name: Install metaverse
+  shell: chdir={{ metaverse_work_dir }} make install
+

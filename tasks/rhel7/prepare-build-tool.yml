@@ -1,0 +1,30 @@
+#sudo apt-get install build-essential autoconf automake libtool pkg-config git
+- name: Install yum package for autoconf
+  yum:
+    name: autoconf
+    state: latest
+
+- name: Install yum package for automake
+  yum:
+    name: automake
+    state: latest
+
+- name: Install yum package for libtool
+  yum:
+    name: libtool
+    state: latest
+
+- name: Install yum package for pkgconfig
+  yum:
+    name: pkgconfig
+    state: latest
+
+- name: Install yum package for git
+  yum:
+    name: git
+    state: latest
+
+- name: Install yum package for cmake
+  yum:
+    name: cmake
+    state: latest

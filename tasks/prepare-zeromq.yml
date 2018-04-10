@@ -1,0 +1,26 @@
+---
+
+- name: Create ZeroMQ work directory
+  file: path={{ zeromq_work_dir }} state=directory
+
+- name: Download and unpack ZeroMQ
+  unarchive:
+    src: https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz
+    dest: '{{ zeromq_work_dir }}'
+    remote_src: yes
+
+- name: Execute ZeroMQ autogen
+  shell: chdir={{ zeromq_work_dir }}/zeromq-4.2.1 ./autogen.sh
+
+- name: Execute ZeroMQ configure
+  shell: chdir={{ zeromq_work_dir }}/zeromq-4.2.1 ./configure
+
+- name: Make ZeroMQ
+  shell: chdir={{ zeromq_work_dir }}/zeromq-4.2.1 make -j4
+
+- name: Install ZeroMQ
+  shell: chdir={{ zeromq_work_dir }}/zeromq-4.2.1 make install
+
+- name: Run Ldconfig
+  shell: chdir={{ zeromq_work_dir }}/zeromq-4.2.1 ldconfig
+

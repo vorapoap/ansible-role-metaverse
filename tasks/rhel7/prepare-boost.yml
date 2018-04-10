@@ -1,0 +1,42 @@
+# from https://raw.githubusercontent.com/toshitanian/ansible-boost/master/tasks/main.yml
+---
+
+- name: Install boost dependencies
+  yum: name={{ item }} state=latest
+  sudo: yes
+  with_items:
+    - python-devel
+    - gcc
+    - gcc-c++
+    - kernel-devel
+    - bzip2-devel
+  when: ansible_os_family == "RedHat"
+
+- name: Create boost work directory
+  file: path={{ boost_work_dir }} state=directory
+
+- name: Create boost install directory
+  sudo: yes
+  file: path={{ boost_prefix }} state=directory
+  when: boost_prefix is defined
+
+- name: Download and unpack boost tarball
+  unarchive:
+    src: 'http://downloads.sourceforge.net/project/boost/boost/{{ boost_version }}/{{ boost_tar_name  }}'
+    dest: '{{ boost_work_dir }}'
+    remote_src: yes
+
+- name: Bootstrap Boost
+  command: chdir={{ boost_work_dir }}/{{ boost_build_dir }} ./bootstrap.sh
+  when: boost_prefix is not defined
+
+- name: Bootstrap Boost
+  command: chdir={{ boost_work_dir }}/{{ boost_build_dir }} ./bootstrap.sh --prefix={{ boost_prefix }}
+  when: boost_prefix is defined
+
+- name: Make Boost
+  command: chdir={{ boost_work_dir }}/{{ boost_build_dir }} ./b2
+
+- name: Insall Boost
+  sudo: yes
+  command: chdir={{ boost_work_dir }}/{{ boost_build_dir }} ./b2 install

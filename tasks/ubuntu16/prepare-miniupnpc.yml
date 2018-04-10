@@ -1,0 +1,11 @@
+---
+
+- name: Install apt package for miniupnpc
+  apt:
+    name: miniupnpc
+    state: latest
+
+- name: Install apt package for libminiupnpc-dev
+  yum:
+    name: libminiupnpc-dev
+    state: latest

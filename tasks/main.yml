@@ -1,0 +1,27 @@
+---
+# tasks file for ansible-role-metaverse
+
+- import_tasks: rhel7/prepare-gcc.yml
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+- import_tasks: rhel7/prepare-build-tool.yml
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+- import_tasks: rhel7/prepare-boost.yml
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+- import_tasks: ubuntu16/prepare-build-tool.yml
+  when: "ansible_distribution == 'Ubuntu' and ansible_distribution_major_version == '16'"
+
+- import_tasks: ubuntu16/prepare-boost.yml
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+- import_tasks: prepare-libbitcoin.yml
+
+- import_tasks: prepare-miniupnpc.yml
+
+- import_tasks: prepare-zeromq.yml
+
+- import_tasks: prepare-secp256k1.yml
+
+- import_tasks: build-metaverse.yml

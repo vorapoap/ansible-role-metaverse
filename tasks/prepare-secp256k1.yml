@@ -1,0 +1,25 @@
+---
+
+- name: Create secp256k1 work directory
+  file: path={{ secp256k1_work_dir }} state=directory
+
+- name: Git clone secp256k1
+  git:
+    repo: 'https://github.com/mvs-org/secp256k1.git'
+    dest: '{{ secp256k1_work_dir }}'
+
+- name: Execute secp256k1
+  shell: chdir={{ secp256k1_work_dir }} ./autogen.sh
+
+- name: Execute secp256k1 configure
+  shell: chdir={{ secp256k1_work_dir }} ./configure --enable-module-recovery --with-bignum=no
+
+- name: Make secp256k1
+  shell: chdir={{ secp256k1_work_dir }} make -j4
+
+- name: Install secp256k1
+  shell: chdir={{ secp256k1_work_dir }} make install
+
+- name: Run Ldconfig
+  shell: chdir={{ secp256k1_work_dir }} ldconfig
+

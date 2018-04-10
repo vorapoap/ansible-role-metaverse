@@ -1,0 +1,23 @@
+- name: Install yum package for CentOS SCLo SIG
+  yum:
+    name: centos-release-scl-rh
+    state: latest
+
+- name: Install yum package for devtoolset-4-gcc
+  yum:
+    name: devtoolset-4-gcc
+    state: latest
+
+- name: Install yum package for devtoolset-4-gcc-c++
+  yum:
+    name: devtoolset-4-gcc
+    state: latest
+
+- name: Enable devtoolset-4 (SCL)
+  command: scl enable devtoolset-4 bash
+
+- name: Enable devtoolset-4 in bashrc
+  lineinfile:
+    path: /etc/bashrc
+    line: 'source /opt/rh/devtoolset-4/enable'
+
