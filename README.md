@@ -1,38 +1,51 @@
-Role Name
+Metaverse Public Blockchain
 =========
 
-A brief description of the role goes here.
+Metaverse(MVS) is a decentralised system based on the blockchain technology, through which, a network of smart properties, digital identities and value intermediators are established.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+First working version on latest CentOS 7.3, should be also working fine with CentOS 7+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```
+boost_work_dir: '/tmp/boost'
+boost_version: '1.66.0'
+boost_build_dir: 'boost_{{ boost_version.replace(".", "_") }}'
+boost_tar_name: '{{ boost_build_dir }}.tar.bz2'
+libbitcoin_work_dir: '/tmp/libbitcoin'
+zeromq_work_dir: '/tmp/zeromq'
+secp256k1_work_dir: '/tmp/secp256k1'
+miniupnpc_work_dir: '/tmp/miniupnpc'
+metaverse_work_dir: '/tmp/metaverse'
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Boost recipe is bought from https://github.com/toshitanian/ansible-boost
+n/a
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+    - hosts: localhost
+      user: root
       roles:
-         - { role: username.rolename, x: 42 }
+         - ansible-role-metaverse
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Vorapoap Lohwongwatana
+https://www.linkedin.com/in/vorapoap/
