@@ -1,27 +1,37 @@
 ---
 # tasks file for ansible-role-metaverse
 
-- import_tasks: rhel7/prepare-gcc.yml
+- include_tasks: rhel7/prepare-gcc.yml
   when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+  tags: [ 'prepare' ]
 
-- import_tasks: rhel7/prepare-build-tool.yml
+- include_tasks: rhel7/prepare-build-tool.yml
   when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+  tags: [ 'prepare' ]
 
-- import_tasks: rhel7/prepare-boost.yml
+- include_tasks: rhel7/prepare-boost.yml
   when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+  tags: [ 'toolchain' ]
 
-- import_tasks: ubuntu16/prepare-build-tool.yml
+- include_tasks: ubuntu16/prepare-build-tool.yml
   when: "ansible_distribution == 'Ubuntu' and ansible_distribution_major_version == '16'"
+  tags: [ 'prepare' ]
 
-- import_tasks: ubuntu16/prepare-boost.yml
+- include_tasks: ubuntu16/prepare-boost.yml
   when: "ansible_distribution == 'Ubuntu' and ansible_distribution_major_version == '16'"
+  tags: [ 'toolchain' ]
 
-- import_tasks: prepare-libbitcoin.yml
+- include_tasks: prepare-libbitcoin.yml
+  tags: [ 'libbitcoin' ]
 
-- import_tasks: prepare-miniupnpc.yml
+- include_tasks: prepare-miniupnpc.yml
+  tags: [ 'toolchain' ]
 
-- import_tasks: prepare-zeromq.yml
+- include_tasks: prepare-zeromq.yml
+  tags: [ 'toolchain' ]
 
-- import_tasks: prepare-secp256k1.yml
+- include_tasks: prepare-secp256k1.yml
+  tags: [ 'toolchain' ]
 
-- import_tasks: build-metaverse.yml
+- include_tasks: build-metaverse.yml
+  tags: [ 'metaverse' ]

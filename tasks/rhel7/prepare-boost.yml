@@ -3,7 +3,6 @@
 
 - name: Install boost dependencies
   yum: name={{ item }} state=latest
-  sudo: yes
   with_items:
     - python-devel
     - gcc
@@ -16,7 +15,6 @@
   file: path={{ boost_work_dir }} state=directory
 
 - name: Create boost install directory
-  sudo: yes
   file: path={{ boost_prefix }} state=directory
   when: boost_prefix is defined
 
@@ -38,5 +36,4 @@
   command: chdir={{ boost_work_dir }}/{{ boost_build_dir }} ./b2
 
 - name: Insall Boost
-  sudo: yes
   command: chdir={{ boost_work_dir }}/{{ boost_build_dir }} ./b2 install

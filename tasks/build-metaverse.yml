@@ -15,8 +15,8 @@
   shell: chdir={{ metaverse_work_dir }}/build cmake ..
 
 - name: Make metaverse
-  shell: chdir={{ metaverse_work_dir }} make -j4
+  shell: chdir={{ metaverse_work_dir }}/build make -j4
 
 - name: Install metaverse
-  shell: chdir={{ metaverse_work_dir }} make install
+  shell: chdir={{ metaverse_work_dir }}/build make install
 

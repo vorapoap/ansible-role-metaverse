@@ -4,7 +4,6 @@
   file: path={{ libbitcoin_work_dir }} state=directory
 
 - name: Create libbitcoin install directory
-  sudo: yes
   file: path={{ libbitcoin_prefix }} state=directory
   when: libbitcoin_prefix is defined
 

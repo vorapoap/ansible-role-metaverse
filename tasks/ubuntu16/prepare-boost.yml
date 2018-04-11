@@ -2,5 +2,4 @@
 
 - name: Install apt package for boost
   apt: name=libboost-all-dev state=latest
-  sudo: yes
 
