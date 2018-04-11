@@ -16,8 +16,10 @@
 - name: Enable devtoolset-4 (SCL)
   command: scl enable devtoolset-4 bash
 
-- name: Enable devtoolset-4 in bashrc
+- name: Enable devtoolset-4 in /root/.bashrc
   lineinfile:
-    path: /etc/bashrc
+    path: /root/.bashrc
     line: 'source /opt/rh/devtoolset-4/enable'
 
+- name: Source devtoolset-4/enable
+  shell: source /root/.bashrc
