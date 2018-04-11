@@ -30,7 +30,7 @@ metaverse_work_dir: '/tmp/metaverse'
 Dependencies
 ------------
 
-Boost recipe is bought from https://github.com/toshitanian/ansible-boost
+Boost recipe is modified from https://github.com/toshitanian/ansible-boost
 n/a
 
 Example Playbook
