@@ -13,8 +13,8 @@
     name: devtoolset-4-gcc
     state: latest
 
-- name: Enable devtoolset-4 (SCL)
-  command: scl enable devtoolset-4 bash
+#- name: Enable devtoolset-4 (SCL)
+#  command: scl enable devtoolset-4 bash
 
 - name: Enable devtoolset-4 in /root/.bashrc
   lineinfile:
