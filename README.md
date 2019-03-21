@@ -36,12 +36,14 @@ n/a
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+After running 'ansible-galaxy install vorapoap.metaverse' as root
+Create the playbook file (.yml) as follows:
 
-    - hosts: localhost
-      user: root
-      roles:
-         - ansible-role-metaverse
+---
+- hosts: localhost
+  user: root
+  roles:
+    - vorapoap.metaverse
 
 License
 -------
